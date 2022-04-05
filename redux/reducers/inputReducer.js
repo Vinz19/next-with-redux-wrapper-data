@@ -1,16 +1,16 @@
 import { ADD_NAME } from "../types";
 
- const initialState = [
-     { 
+ const initialState = {
          name: "",
          lastName: "",
-     }
- ]
+    
+    }
 
-const inputName = (state = initialState, { type, payload }) => {
-  switch (type) {
+const inputReducer = (state = initialState, action, payload) => {
+  switch (action.type) {
     case ADD_NAME:
       return {
+        ...state,
         name: payload.name,
         lastName: payload.lastName,
       };
@@ -19,4 +19,4 @@ const inputName = (state = initialState, { type, payload }) => {
   }
 };
 
-export default inputName;
+export default inputReducer;
