@@ -10,18 +10,16 @@ import thunk from "redux-thunk";
 };*/
 
 // initial states here
-const initialState = {}
+const initialState = {};
 
-// middleware
-const middleware = [thunk];
+//CREATE STORE
 
-// creating store
-export const store = createStore(
-  initialState, reducers,
-  composeWithDevTools(applyMiddleware(...middleware))
-);
+const store = () => {
+  return createStore(
+    reducers,
+    initialState,
+    composeWithDevTools(applyMiddleware(thunk))
+  );
+};
 
-// assigning store to next wrapper
-const makeStore = () => store;
-
-export const wrapper = createWrapper(makeStore);
+export const wrapper = createWrapper(store);

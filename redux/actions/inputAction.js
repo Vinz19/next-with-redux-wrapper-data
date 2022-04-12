@@ -1,7 +1,12 @@
 import { ADD_NAME } from "../types";
 
-export const addName = (name, lastName) => (dispatch) =>
-  dispatch({
+
+const user = {
+  name: 'name',
+  lastName: 'lastName',
+};
+
+export const addName = () =>({
     type: ADD_NAME,
-    payload: { name, lastName },
+    payload: user,
   });
